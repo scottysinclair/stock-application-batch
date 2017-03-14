@@ -7,15 +7,15 @@
 
     <!-- Registers Hibernate Session Factory -->
     <bean id="sessionFactoryInt" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
+        <property name="dataSource" ref="dataSourceInt"/>
         <property name="annotatedClasses">
             <list>
-                <value>com.acme.spring.hibernate.batch.domain.StockInt</value>
+                <value>com.acme.spring.hibernate.batch.integration.domain.StockInt</value>
             </list>
         </property>
         <property name="hibernateProperties">
 	        <props>
-	         <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</prop>
+	         <prop key="hibernate.dialect">org.hibernate.dialect.DB2Dialect</prop>
 	         <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
 	        </props>
         </property>

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.spring.hibernate.batch.repository.impl;
+package com.acme.spring.hibernate.batch.integration.repository.impl;
 
 import java.text.MessageFormat;
 
@@ -23,16 +23,16 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.acme.spring.hibernate.batch.domain.StockInt;
-import com.acme.spring.hibernate.batch.repository.StockIntRepository;
+import com.acme.spring.hibernate.batch.integration.domain.StockInt;
+import com.acme.spring.hibernate.batch.integration.repository.StockRepositoryInt;
 
 /**
- * <p>A default implementation of {@link StockIntRepository} that uses Hibernate for persistence operations.</p>
+ * <p>A default implementation of {@link StockRepositoryInt} that uses Hibernate for persistence operations.</p>
  *
  * @author <a href="mailto:jmnarloch@gmail.com">Jakub Narloch</a>
  */
 @Repository
-public class HibernateStockIntRepository implements StockIntRepository {
+public class HibernateStockRepositoryInt implements StockRepositoryInt {
 
     /**
      * <p>Represents the instance of {@link SessionFactory} used for persistence operation.</p>
@@ -41,9 +41,9 @@ public class HibernateStockIntRepository implements StockIntRepository {
     private SessionFactory sessionFactory;
 
     /**
-     * <p>Creates new instance of {@link HibernateStockIntRepository}</p>
+     * <p>Creates new instance of {@link HibernateStockRepositoryInt}</p>
      */
-    public HibernateStockIntRepository() {
+    public HibernateStockRepositoryInt() {
         // empty constructor
     }
 

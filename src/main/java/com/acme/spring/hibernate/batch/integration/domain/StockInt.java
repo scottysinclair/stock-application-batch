@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.spring.hibernate.batch.domain;
+package com.acme.spring.hibernate.batch.integration.domain;
 
 import java.math.BigDecimal;
 import java.util.Date;

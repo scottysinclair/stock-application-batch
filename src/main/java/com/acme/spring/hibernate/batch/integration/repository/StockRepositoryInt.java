@@ -14,18 +14,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.spring.hibernate.batch.service;
+package com.acme.spring.hibernate.batch.integration.repository;
 
-import com.acme.spring.hibernate.batch.domain.StockInt;
-import com.acme.spring.hibernate.domain.Stock;
+import com.acme.spring.hibernate.batch.integration.domain.StockInt;
 
 /**
- * <p>A stock service.</p>
+ * <p>A stock repository that handles operation in underlying storage.</p>
  *
  * @author <a href="mailto:jmnarloch@gmail.com">Jakub Narloch</a>
  */
-public interface StockIntService {
+public interface StockRepositoryInt {
 
-	public StockInt integrate(Stock stock);
+    /**
+     * <p>Saves a {@link com.acme.spring.hibernate.batch.integration.domain.StockInt} instance in repository.</p>
+     *
+     * @param stock the {@link com.acme.spring.hibernate.batch.integration.domain.StockInt} instance
+     *
+     * @return the identifier of newly created stock
+     *
+     * @throws IllegalArgumentException if stock is null or if stock's symbol is null or empty string
+     */
+    long save(StockInt stock);
+
 
 }

@@ -14,35 +14,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.spring.hibernate.batch.service.impl;
-
-import com.acme.spring.hibernate.batch.domain.StockInt;
-import com.acme.spring.hibernate.batch.repository.StockIntRepository;
-import com.acme.spring.hibernate.batch.service.StockIntService;
-import com.acme.spring.hibernate.domain.Stock;
+package com.acme.spring.hibernate.batch.integration.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
-import java.util.List;
+import com.acme.spring.hibernate.batch.integration.domain.StockInt;
+import com.acme.spring.hibernate.batch.integration.repository.StockRepositoryInt;
+import com.acme.spring.hibernate.batch.integration.service.StockServiceInt;
+import com.acme.spring.hibernate.domain.Stock;
 
 /**
- * <p>A default implementation of {@link com.acme.spring.hibernate.batch.service.StockIntService}, it simply delegates all
- * operations to underlying {@link com.acme.spring.hibernate.batch.repository.StockIntRepository}.</p>
+ * <p>A default implementation of {@link com.acme.spring.hibernate.batch.integration.service.StockServiceInt}, it simply delegates all
+ * operations to underlying {@link com.acme.spring.hibernate.batch.integration.repository.StockRepositoryInt}.</p>
  *
  * @author <a href="mailto:jmnarloch@gmail.com">Jakub Narloch</a>
  */
 @Service
-@Transactional
-public class DefaultStockService implements StockIntService {
+@Transactional("txManagerInt")
+public class DefaultStockServiceInt implements StockServiceInt {
 
     /**
-     * <p>Represents the instance of {@link com.acme.spring.hibernate.batch.repository.StockIntRepository} </p>
+     * <p>Represents the instance of {@link com.acme.spring.hibernate.batch.integration.repository.StockRepositoryInt} </p>
      */
     @Autowired
-    private StockIntRepository stockRepository;
+    private StockRepositoryInt stockRepository;
 
 	@Override
 	public StockInt integrate(Stock stock) {

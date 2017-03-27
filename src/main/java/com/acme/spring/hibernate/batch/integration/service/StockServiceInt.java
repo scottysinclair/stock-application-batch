@@ -26,6 +26,6 @@ import com.acme.spring.hibernate.domain.Stock;
  */
 public interface StockServiceInt {
 
-	public StockInt integrate(Stock stock);
+    public StockInt integrate(Stock stock);
 
 }

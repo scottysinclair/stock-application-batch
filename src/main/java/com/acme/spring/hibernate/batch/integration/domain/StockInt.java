@@ -20,6 +20,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * <p>Simple POJO representing a stock.</p>
@@ -32,6 +33,7 @@ public class StockInt {
     /**
      * <p>Represents the stock name.</p>
      */
+    @Id
     private String name;
 
     /**

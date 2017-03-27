@@ -10,7 +10,7 @@
 
     <!-- Creates transaction manager -->
     <bean id="txManagerInt" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-        <property name="sessionFactoryInt" ref="sessionFactory"/>
+        <property name="sessionFactory" ref="sessionFactoryInt"/>
     </bean>
 
     <!-- Scans for the beans definitions -->

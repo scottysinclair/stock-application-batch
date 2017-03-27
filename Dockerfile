@@ -5,7 +5,9 @@ ENV BATCH_HOME /opt/stock-application-batch
 RUN mkdir $BATCH_HOME
 
 COPY target/stock-application-batch-*.jar $BATCH_HOME
-COPY src/main/resources/docker/application.properties $BATCH_HOME
+
+#echo "java -agentlib:jdwp=transport=dt_socket,server=y,address=8000,suspend=y \
+
 
 RUN echo "log4j.rootLogger=INFO, stdout" > $BATCH_HOME/log4j.properties && \
 echo "log4j.appender.stdout=org.apache.log4j.ConsoleAppender" >> $BATCH_HOME/log4j.properties && \
@@ -17,8 +19,6 @@ echo "log4j.logger.org.arquillian=DEBUG, stdout" >> $BATCH_HOME/log4j.properties
 \
 echo "#!/bin/bash" > $BATCH_HOME/run_integration.sh && \
 echo "cd /opt/stock-application-batch" >> $BATCH_HOME/run_integration.sh && \
-echo "java \
--agentlib:jdwp=transport=dt_socket,server=y,address=8000,suspend=y \
 -cp stock-application-batch-*.jar \
 -Dlog4j.configuration=file:log4j.properties \
 com.acme.spring.hibernate.batch.integration.Application" >> $BATCH_HOME/run_integration.sh && \
@@ -36,8 +36,9 @@ echo "old.user=db2inst1" >> $BATCH_HOME/application.properties && \
 echo "old.password=password" >> $BATCH_HOME/application.properties && \
 echo "old.driver=com.ibm.db2.jcc.DB2Driver" >> $BATCH_HOME/application.properties
 
-#Expose a port for remote debugging.
+#Expose a port for remote debugging the integration batch.
 EXPOSE 8000
 
-ENTRYPOINT tail -f /dev/null
+#the echo to the console use used by the arquillian await stratgey.
+ENTRYPOINT echo "batch container up" && tail -f /dev/null
 

@@ -41,20 +41,20 @@ public class DefaultStockServiceInt implements StockServiceInt {
     @Autowired
     private StockRepositoryInt stockRepository;
 
-	@Override
-	public StockInt integrate(Stock stock) {
+    @Override
+    public StockInt integrate(Stock stock) {
 
-		StockInt stockInt = new StockInt();
-		stockInt.setName( stock.getName() );
-		stockInt.setSymbol( stock.getSymbol() );
-		stockInt.setValue( stock.getValue() );
-		stockInt.setDate( stock.getDate() );
+        StockInt stockInt = new StockInt();
+        stockInt.setName( stock.getName() );
+        stockInt.setSymbol( stock.getSymbol() );
+        stockInt.setValue( stock.getValue() );
+        stockInt.setDate( stock.getDate() );
 
 
-		stockRepository.save(stockInt);
+        stockRepository.save(stockInt);
 
-		return stockInt;
-	}
+        return stockInt;
+    }
 
 
 

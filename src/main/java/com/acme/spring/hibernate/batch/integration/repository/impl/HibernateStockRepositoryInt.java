@@ -21,6 +21,7 @@ import java.text.MessageFormat;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.acme.spring.hibernate.batch.integration.domain.StockInt;
@@ -38,6 +39,7 @@ public class HibernateStockRepositoryInt implements StockRepositoryInt {
      * <p>Represents the instance of {@link SessionFactory} used for persistence operation.</p>
      */
     @Autowired
+    @Qualifier("sessionFactoryInt")
     private SessionFactory sessionFactory;
 
     /**
@@ -61,13 +63,13 @@ public class HibernateStockRepositoryInt implements StockRepositoryInt {
      * {@inheritDoc}
      */
     @Override
-    public long save(StockInt stock) {
+    public String save(StockInt stock) {
 
         // validates the input
         validateNoNull(stock, "stock");
         validateNotEmpty(stock.getSymbol(), "symbol");
 
-        return (Long) getSession().save(stock);
+        return (String) getSession().save(stock);
     }
 
 

@@ -21,6 +21,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * <p>Simple POJO representing a stock.</p>
@@ -28,6 +29,7 @@ import javax.persistence.Id;
  * @author <a href="mailto:jmnarloch@gmail.com">Jakub Narloch</a>
  */
 @Entity
+@Table(name="STOCKINT")
 public class StockInt {
 
     /**

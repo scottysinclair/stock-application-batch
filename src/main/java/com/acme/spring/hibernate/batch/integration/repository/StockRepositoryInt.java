@@ -34,7 +34,7 @@ public interface StockRepositoryInt {
      *
      * @throws IllegalArgumentException if stock is null or if stock's symbol is null or empty string
      */
-    long save(StockInt stock);
+    String save(StockInt stock);
 
 
 }

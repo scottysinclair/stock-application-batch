@@ -6,7 +6,7 @@ RUN mkdir $BATCH_HOME
 
 COPY target/stock-application-batch-*.jar $BATCH_HOME
 
-#echo "java -agentlib:jdwp=transport=dt_socket,server=y,address=8000,suspend=y \
+#echo "java -agentlib:jdwp=transport=dt_socket,server=y,address=8000,suspend=y" \
 
 
 RUN echo "log4j.rootLogger=INFO, stdout" > $BATCH_HOME/log4j.properties && \
@@ -19,7 +19,7 @@ echo "log4j.logger.org.arquillian=DEBUG, stdout" >> $BATCH_HOME/log4j.properties
 \
 echo "#!/bin/bash" > $BATCH_HOME/run_integration.sh && \
 echo "cd /opt/stock-application-batch" >> $BATCH_HOME/run_integration.sh && \
--cp stock-application-batch-*.jar \
+echo "java -cp stock-application-batch-*.jar \
 -Dlog4j.configuration=file:log4j.properties \
 com.acme.spring.hibernate.batch.integration.Application" >> $BATCH_HOME/run_integration.sh && \
 \

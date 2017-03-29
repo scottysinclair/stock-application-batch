@@ -19,7 +19,8 @@
         <property name="hibernateProperties">
           <props>
            <prop key="hibernate.dialect">org.hibernate.dialect.DB2Dialect</prop>
-           <prop key="hibernate.hbm2ddl.auto">validate</prop>
+           <!--  there seems to nbe a hibernate& db2 bug related to validating Decimal or Numeric data types -->
+           <prop key="hibernate.hbm2ddl.auto">none</prop>
           </props>
         </property>
     </bean>
